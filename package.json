@@ -1,0 +1,13 @@
+{
+  "name": "horizonte-publicidad",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev": "pnpm --parallel --filter client --filter server dev",
+    "dev:client": "pnpm --filter client dev",
+    "build": "pnpm --filter client build",
+    "lint": "pnpm --filter client lint",
+    "preview": "pnpm --filter client preview",
+    "export:public": "node server/scripts/export-public.mjs"
+  }
+}

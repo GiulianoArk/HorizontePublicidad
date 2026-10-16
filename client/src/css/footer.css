@@ -1,0 +1,119 @@
+.footer {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+  padding: clamp(2.5rem, 6vw, 4rem) 0 1.25rem;
+  border-top: 3px solid var(--color-accent);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 2rem;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.footer-logo .highlight {
+  color: var(--color-accent);
+}
+
+.footer-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  width: 32px;
+  height: 2px;
+  background-color: var(--color-accent);
+  bottom: -6px;
+  left: 0;
+}
+
+.footer-text {
+  line-height: 1.6;
+  font-size: 0.9rem;
+  color: var(--color-text-muted-on-dark);
+}
+
+.footer-links,
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li,
+.footer-contact li {
+  margin-bottom: 0.65rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--color-text-muted-on-dark);
+  font-size: 0.9rem;
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--color-accent);
+}
+
+.footer-contact li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted-on-dark);
+}
+
+.footer-contact svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.65rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  color: var(--color-text-on-dark);
+  transition: all var(--transition);
+}
+
+.social-link:hover {
+  background-color: var(--color-accent);
+  color: var(--color-bg-dark);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+  color: var(--color-text-muted-on-dark);
+}
