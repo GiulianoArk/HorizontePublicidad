@@ -25,7 +25,7 @@ const Header = () => {
           <h1 className="logo">
             Horizonte <span className="logo-highlight">Publicidad</span>
           </h1>
-          <p className="subtitle">Alquiler de carteles</p>
+          <p className="subtitle">Carteles en vía pública</p>
         </Link>
 
         <nav className="header-nav" aria-label="Principal">
@@ -40,8 +40,8 @@ const Header = () => {
           </Link>
         </nav>
 
-        <Link to="/contacto" className="header-cta btn btn--primary">
-          Consultar
+        <Link to="/contacto" className="header-cta btn btn--ghost">
+          Contacto
         </Link>
       </div>
     </header>

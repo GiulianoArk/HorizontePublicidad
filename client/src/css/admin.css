@@ -15,8 +15,8 @@
   width: min(100%, 480px);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-md);
+  box-shadow: none;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;

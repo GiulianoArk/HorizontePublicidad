@@ -13,8 +13,7 @@ const Footer = () => {
             Horizonte <span className="highlight">Publicidad</span>
           </h2>
           <p className="footer-text">
-            Espacios publicitarios estratégicos para que tu marca se vea donde
-            importa.
+            Alquiler de carteles en vía pública. Fotos y ubicaciones actualizadas en el sitio.
           </p>
         </div>
 
