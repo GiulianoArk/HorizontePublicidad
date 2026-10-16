@@ -95,80 +95,30 @@ const MainHome = () => {
       <section className="hero" style={{ '--hero-bg': `url(${HERO_BG})` }}>
         <div className="hero-overlay" />
         <div className="hero-inner">
-          <p className="hero-eyebrow">Espacios publicitarios de alto impacto</p>
-          <h2 className="hero-title">
-            Tu marca en el horizonte de tu región
-          </h2>
+          <p className="hero-kicker">Alquiler de carteles · Tucumán</p>
+          <h2 className="hero-title">Tu marca donde la gente circula</h2>
           <p className="hero-subtitle">
-            Carteles en ubicaciones estratégicas con máxima visibilidad. Conocé
-            nuestra red y consultá disponibilidad sin compromiso.
+            Espacios en vía pública con foto y dirección de cada ubicación. Elegí
+            el cartel y consultanos por disponibilidad y tarifas.
           </p>
           <div className="hero-actions">
             <button type="button" className="btn btn--primary" onClick={scrollToCarteles}>
-              Ver carteles
+              Ver ubicaciones
             </button>
             <Link to="/contacto" className="btn btn--ghost">
-              Contactanos
+              Escribinos
             </Link>
           </div>
-          <dl className="hero-stats">
-            <div className="hero-stat">
-              <dt>{carteles.length}+</dt>
-              <dd>Carteles activos</dd>
-            </div>
-            <div className="hero-stat">
-              <dt>{zonas.length}</dt>
-              <dd>Zonas estratégicas</dd>
-            </div>
-            <div className="hero-stat">
-              <dt>24h</dt>
-              <dd>Respuesta por consulta</dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
-      <section className="value-props" aria-label="Beneficios">
-        <div className="value-props-inner">
-          <article className="value-card">
-            <div className="value-icon" aria-hidden>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-            </div>
-            <h3>Visibilidad en puntos clave</h3>
-            <p>Ubicaciones seleccionadas para captar tráfico peatonal y vehicular.</p>
-          </article>
-          <article className="value-card">
-            <div className="value-icon" aria-hidden>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <path d="M21 15l-5-5L5 21" />
-              </svg>
-            </div>
-            <h3>Fotos y ubicación actualizadas</h3>
-            <p>Cada cartel con imagen real y dirección clara para decidir con confianza.</p>
-          </article>
-          <article className="value-card">
-            <div className="value-icon" aria-hidden>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-              </svg>
-            </div>
-            <h3>Alquiler flexible</h3>
-            <p>Consultá por WhatsApp y armamos la campaña según tu presupuesto.</p>
-          </article>
         </div>
       </section>
 
       <section className="carteles-gallery" id="carteles">
         <div className="gallery-header">
-          <h2>Nuestra red de carteles</h2>
+          <h2>Carteles disponibles</h2>
           <p>
-            Explorá los espacios disponibles. Tocá un cartel para ver la foto en
-            detalle y la ubicación exacta.
+            {galleryStatus === 'ready' && carteles.length > 0
+              ? `${carteles.length} espacio${carteles.length === 1 ? '' : 's'} publicado${carteles.length === 1 ? '' : 's'}. Tocá uno para ver la imagen ampliada y la dirección.`
+              : 'Listado de espacios con imagen y ubicación.'}
           </p>
         </div>
 
@@ -205,7 +155,7 @@ const MainHome = () => {
           {cartelesFiltrados.map((cartel) => (
             <article
               key={cartel.id}
-              className={`cartel-card ${cartel.destacado ? 'cartel-card--featured' : ''}`}
+              className="cartel-card"
               onClick={() => openModal(cartel)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
@@ -219,7 +169,6 @@ const MainHome = () => {
               <div className="cartel-image">
                 <img src={cartel.image} alt={cartel.titulo} loading="lazy" />
                 <span className="cartel-badge">{cartel.zona}</span>
-                <span className="cartel-hover-label">Ver detalle</span>
               </div>
               <div className="cartel-info">
                 <h3>{cartel.titulo}</h3>
@@ -237,23 +186,16 @@ const MainHome = () => {
         )}
       </section>
 
-      <section className="home-cta">
+      <section className="home-cta" aria-label="Contacto">
         <div className="home-cta-inner">
-          <h2>¿Querés reservar un cartel?</h2>
-          <p>Escribinos y te asesoramos con la mejor ubicación para tu campaña.</p>
-          <div className="home-cta-actions">
-            <Link to="/contacto" className="btn btn--primary">
-              Ir a contacto
-            </Link>
-            <a
-              href={whatsappGeneral}
-              className="btn btn--outline-light"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              WhatsApp
+          <p>
+            ¿Necesitás un cartel para tu campaña?{' '}
+            <Link to="/contacto">Dejanos tus datos</Link> o{' '}
+            <a href={whatsappGeneral} target="_blank" rel="noopener noreferrer">
+              escribinos por WhatsApp
             </a>
-          </div>
+            .
+          </p>
         </div>
       </section>
 
@@ -275,7 +217,7 @@ const MainHome = () => {
               className="modal-image"
             />
             <div className="modal-info">
-              <span className="modal-badge">{selectedCartel.zona}</span>
+              <p className="modal-zona">{selectedCartel.zona}</p>
               <h3 id="modal-title">{selectedCartel.titulo}</h3>
               <p className="modal-direccion">
                 <LocationIcon size={18} />

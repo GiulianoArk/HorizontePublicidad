@@ -34,11 +34,9 @@ const MainContacto = () => {
     <section className="contact-section" id="contacto">
       <div className="contact-container">
         <div className="contact-header">
-          <h2 className="section-title">
-          Contáctanos
-          </h2>
+          <h2 className="section-title">Contacto</h2>
           <p className="section-subtitle">
-            ¿Listo para llevar tu marca al siguiente nivel? Completa el formulario y nos pondremos en contacto contigo en breve.
+            Contanos qué cartel te interesa o describí tu campaña. Te respondemos a la brevedad.
           </p>
         </div>
 
